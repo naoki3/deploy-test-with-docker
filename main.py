@@ -10,7 +10,7 @@ def index():
     db_port = os.getenv('DB_PORT', 'xxxx')
     db_name = os.getenv('DB_NAME', 'xxxxxxxx')
     db_user = os.getenv('DB_USER', 'xxxxxxxx')
-    db_password = os.getenv('DB_PASSWORD', 'xxxxxxx')
+    db_password = os.getenv('DB_PASSWORD', 'xxxxxxxx')
     connection = psycopg2.connect(
         host=db_host,
         port=db_port,
