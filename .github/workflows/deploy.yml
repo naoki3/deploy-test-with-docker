@@ -25,14 +25,14 @@ jobs:
         run: gcloud auth configure-docker asia-northeast1-docker.pkg.dev
       
       - name: Build Docker image
-        run: docker build -t asia-northeast1-docker.pkg.dev/deploy-test-with-docker-465606/naoki-repo/flask_test:${ github.sha } .
+        run: docker build -t asia-northeast1-docker.pkg.dev/deploy-test-with-docker-465606/naoki-repo/flask_test:${{ github.sha }} .
       
       - name: Push Docker image
-        run: docker push asia-northeast1-docker.pkg.dev/deploy-test-with-docker-465606/naoki-repo/flask_test:${ github.sha }
+        run: docker push asia-northeast1-docker.pkg.dev/deploy-test-with-docker-465606/naoki-repo/flask_test:${{ github.sha }}
       
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
           service: flask-test
           region: asia-northeast1
-          image: asia-northeast1-docker.pkg.dev/deploy-test-with-docker-465606/naoki-repo/flask_test:${ github.sha }
+          image: asia-northeast1-docker.pkg.dev/deploy-test-with-docker-465606/naoki-repo/flask_test:${{ github.sha }}
